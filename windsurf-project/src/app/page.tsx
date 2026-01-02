@@ -2,50 +2,56 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, ArrowDown, Sparkles, Code, Palette, Gamepad2, ChevronDown } from "lucide-react";
+import { Mail, Sparkles, Code, Palette, Gamepad2, ChevronDown, Coffee } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import AsciiPortrait from "@/components/AsciiPortrait";
 import TypewriterText from "@/components/TypewriterText";
 import GlassCard from "@/components/GlassCard";
 import ProjectCard from "@/components/ProjectCard";
+import ScrollIndicator from "@/components/ScrollIndicator";
+import ClickSparkles from "@/components/ClickSparkles";
+import KonamiCode from "@/components/KonamiCode";
+import SecretFooter from "@/components/SecretFooter";
+import CustomCursor from "@/components/CustomCursor";
+import SixtySeven from "@/components/SixtySeven";
 
 const featuredProjects = [
   {
     title: "countr",
     description: "ai exercise tracker using apple vision to detect body poses and count reps in real-time, with gpt-4 custom workout creation.",
     tags: ["swiftui", "vision", "healthkit", "gpt-4"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Countr",
   },
   {
     title: "kura",
     description: "ai nutrition & fasting app that recognizes food from photos using openai vision api to calculate calories and macros.",
     tags: ["swiftui", "openai", "strava", "live activities"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Kura",
   },
   {
     title: "scriptly",
     description: "ai academic writing suite with gpt-4o autocomplete, grammar checking, and google scholar citations in apa/mla/chicago.",
     tags: ["swiftui", "openai", "swiftdata"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Scriptly",
   },
   {
     title: "cyntascan",
     description: "medical image analysis platform that detects cancer and fractures in x-rays and ct scans using machine learning.",
     tags: ["next.js", "tensorflow", "mongodb", "typescript"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Cyntascan",
   },
   {
     title: "fluentry",
     description: "ai language learning app with personalized lessons, conversation practice, and 1000+ vocabulary words.",
     tags: ["swiftui", "openai", "widgetkit"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Fluentry",
   },
   {
     title: "aero",
     description: "flight tracker with ios 26 liquid glass design, real-time map tracking, and dynamic island live activities.",
     tags: ["swiftui", "mapkit", "live activities"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Aero",
   },
 ];
 
@@ -54,25 +60,25 @@ const moreProjects = [
     title: "dawn",
     description: "smart alarm & morning routine app with enhanced wake-up experiences and personalized onboarding.",
     tags: ["swiftui", "notifications", "persistence"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Dawn",
   },
   {
     title: "nimbus clock",
     description: "minimalist clock with world time zones, sleep scheduling, and comprehensive widget support.",
     tags: ["swiftui", "widgetkit", "app groups"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/Nimbus-Clock-Main",
   },
   {
     title: "one thing",
     description: "macos menu bar battery app with liquid glass design and beautiful popover interface.",
     tags: ["swiftui", "appkit", "macos"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/One-Thing",
   },
   {
     title: "edume",
     description: "mobile learning platform with firebase backend, google sign-in, and offline support.",
     tags: ["swiftui", "firebase", "google auth"],
-    github: "https://github.com/rishithc",
+    github: "https://github.com/Cyntax1/EduMe",
   },
 ];
 
@@ -104,9 +110,14 @@ export default function Home() {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-[#0a0f1a] overflow-hidden">
+    <main className="relative min-h-screen bg-[#0a0f1a] overflow-hidden aurora-bg">
+      <CustomCursor />
       <ParticlesBackground />
       <Navigation />
+      <ScrollIndicator />
+      <ClickSparkles />
+      <KonamiCode />
+      <SixtySeven />
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center px-6">
@@ -130,13 +141,13 @@ export default function Home() {
 
             <p className="text-lg text-white/50 max-w-md leading-relaxed">
               <TypewriterText
-                text="13-year-old ios developer & ai enthusiast. built 10+ apps in 8th grade. i turn ideas into pixels and code."
+                text="14-year-old ios developer & ai enthusiast. built 10+ apps in 8th grade. i turn ideas into pixels and code."
                 delay={800}
               />
             </p>
 
             <motion.a
-              href="mailto:hello@rishithc.com"
+              href="mailto:rishithchennupati@gmail.com"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.5 }}
@@ -150,22 +161,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="text-white/30"
-          >
-            <ArrowDown size={20} />
-          </motion.div>
-        </motion.div>
-      </section>
+        </section>
 
       {/* About Section */}
       <section id="about" className="relative py-32 px-6">
@@ -189,7 +185,7 @@ export default function Home() {
               <GlassCard hover={false}>
                 <div className="flex flex-col gap-4">
                   <p className="text-white/60 leading-relaxed">
-                    hey! i'm <span className="text-white/90">rishith chennupati</span>, a 13-year-old developer
+                    hey! i'm <span className="text-white/90">rishith chennupati</span>, a 14-year-old developer
                     who's been building ios apps and web platforms since middle school.
                   </p>
                   <p className="text-white/60 leading-relaxed">
@@ -246,7 +242,7 @@ export default function Home() {
             languages i <span className="text-gradient">speak</span>
           </motion.h2>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
             {languages.map((lang, i) => (
               <motion.div
                 key={lang.name}
@@ -254,20 +250,20 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className="lang-badge px-6 py-3 rounded-2xl cursor-default glow-outline"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="flex flex-col items-center gap-2 p-4 rounded-2xl cursor-default glow-outline bg-white/[0.02] border border-white/[0.05]"
                 style={{ 
-                  borderColor: `${lang.color}40`,
-                  boxShadow: `0 0 20px ${lang.color}20`
+                  boxShadow: `0 0 20px ${lang.color}15`
                 }}
               >
-                <span className="text-white/90 font-medium">{lang.name}</span>
                 <span 
-                  className="ml-2 text-xs px-2 py-0.5 rounded-full"
-                  style={{ 
-                    backgroundColor: `${lang.color}20`,
-                    color: lang.color 
-                  }}
+                  className="text-lg font-medium"
+                  style={{ color: lang.color }}
+                >
+                  {lang.name}
+                </span>
+                <span 
+                  className="text-[10px] px-2 py-0.5 rounded-full text-white/50 bg-white/[0.05]"
                 >
                   {lang.level}
                 </span>
@@ -355,33 +351,63 @@ export default function Home() {
             robotics <span className="text-gradient">builds</span>
           </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <GlassCard className="majestic-glow text-center py-12">
-              <div className="flex flex-col items-center gap-4">
-                <div className="text-4xl">🤖</div>
-                <h3 className="text-xl text-white/90 font-medium">coming soon</h3>
-                <p className="text-white/50 max-w-md">
-                  robotics projects with c++ and hardware integration will be showcased here.
-                  building cool stuff with motors, sensors, and code.
-                </p>
-                <div className="flex gap-2 mt-4">
-                  {["c++", "robotics", "arduino", "hardware"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs rounded-full bg-white/[0.03] text-white/50 border border-white/[0.05]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          <div className="grid md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <GlassCard className="h-full">
+                <div className="flex flex-col gap-4">
+                  <div className="text-3xl">🚁</div>
+                  <h3 className="text-lg text-white/90 font-medium">large lift drone</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    heavy-lift drone designed to deliver resources and medical supplies 
+                    to people in need. built for humanitarian aid and emergency response.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {["c++", "flight controller", "gps", "payload"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs rounded-full bg-white/[0.03] text-white/50 border border-white/[0.05]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </GlassCard>
-          </motion.div>
+              </GlassCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <GlassCard className="h-full">
+                <div className="flex flex-col gap-4">
+                  <div className="text-3xl">🚪</div>
+                  <h3 className="text-lg text-white/90 font-medium">smart door opener</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    affordable automatic door opener for disabled individuals. 
+                    features smart app compatibility for easy control and accessibility.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {["c++", "motors", "bluetooth", "ios app"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs rounded-full bg-white/[0.03] text-white/50 border border-white/[0.05]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -409,7 +435,7 @@ export default function Home() {
           </motion.p>
 
           <motion.a
-            href="mailto:hello@rishithc.com"
+            href="mailto:rishithchennupati@gmail.com"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -428,11 +454,23 @@ export default function Home() {
       <footer className="relative py-8 px-6 border-t border-white/[0.05]">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/30">
-            © 2024 rishith chennupati. made with 💚
+            © 2025 rishith chennupati. made with <SecretFooter />
           </p>
-          <p className="text-sm text-white/30">
-            rishithc.com
-          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://buymeacoffee.com/rishithc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-white/30 hover:text-[#FFDD00] transition-colors"
+            >
+              <Coffee size={14} />
+              buy me a coffee
+            </a>
+            <span className="text-white/20">•</span>
+            <p className="text-sm text-white/30">
+              rishithc.com
+            </p>
+          </div>
         </div>
       </footer>
     </main>

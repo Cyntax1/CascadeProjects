@@ -19,8 +19,16 @@ npm run dev
 
 open http://localhost:3000
 
-## deploy
+## deploy to vercel
 
+1. push your code to github
+2. go to [vercel.com](https://vercel.com)
+3. sign in with github
+4. click "new project" → import your repo
+5. click deploy - that's it!
+
+or use the vercel cli:
 ```bash
-npm run build
+npm i -g vercel
+vercel
 ```

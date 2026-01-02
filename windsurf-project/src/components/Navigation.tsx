@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Mail, Github, Instagram } from "lucide-react";
 
 const navItems = [
   { name: "home", href: "#home" },
@@ -12,21 +13,35 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { icon: Mail, href: "mailto:hello@rishithc.com", label: "Email" },
-  { icon: Github, href: "https://github.com/rishithc", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/rishithc", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/rishithc", label: "Twitter" },
+  { icon: Mail, href: "mailto:rishithchennupati@gmail.com", label: "Email" },
+  { icon: Github, href: "https://github.com/Cyntax1", label: "GitHub" },
+  { icon: Instagram, href: "https://www.instagram.com/risheeeeth/", label: "Instagram" },
 ];
 
 export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-2xl transition-all duration-500 ${
+        scrolled 
+          ? "bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.3)]" 
+          : "bg-transparent"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="flex items-center gap-8">
         <motion.a
           href="#home"
           className="text-lg font-medium text-white/90 hover:text-white transition-colors"
